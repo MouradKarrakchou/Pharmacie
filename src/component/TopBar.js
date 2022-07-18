@@ -15,9 +15,10 @@ export default function TopBar(props){
             workbook.SheetNames.forEach(function(sheetName) {
                     var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
                     var json_object = JSON.stringify(XL_row_object);
-                if (sheetName==="Sheet1") props.setExcel(json_object);
-                else if (sheetName==="Fournisseur")props.setFournisseur(json_object);
+                if (sheetName==="Fournisseur")props.setFournisseur(json_object);
                 else if (sheetName==="Colonnes")props.setCol(json_object);
+                else
+                    props.setExcel(json_object);
             })
 
         };
