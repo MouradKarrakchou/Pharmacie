@@ -1,0 +1,62 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.TopBar--box{
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(23, 56, 63, 0.77);
+    color: rgba(208, 181, 181, 0.79);
+}
+
+.TopBar--case{
+    padding:8px;
+    margin:auto;
+    cursor: grab;
+}
+
+.Home{
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+}
+
+.Home--contain1{
+    margin: 20px auto;
+    width: 400px;
+
+}
+
+.Home--contain2{
+    margin: 20px auto;
+    width: 600px;
+}
+.Home--solde{
+    text-align: center;
+}
+.Facture{
+    display:flex;
+    flex-direction: row;
+}
+.Facture--calen{
+    width: 600px;
+    margin: auto;
+}
+.Graphics{
+    display:flex;
+    padding: 40px;
+}
+
+.Graphics--courbe--text{
+    text-align: center;
+}
+
+.Graphics--courbe{
+    margin: auto auto;
+}
+
+.Graphics--facture{
+    margin: auto;
+    border: 5px rgba(0, 0, 0, 0.11) solid;
+}
