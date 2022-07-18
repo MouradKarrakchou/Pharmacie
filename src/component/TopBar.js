@@ -18,8 +18,11 @@ export default function TopBar(props){
                 if (sheetName==="Fournisseur")props.setFournisseur(json_object);
                 else if (sheetName==="Colonnes")props.setCol(json_object);
                 else
-                    props.setExcel(json_object);
+                    props.setExcel(json_object)
+                    console.log(sheetName)
+                    props.setExcelMounth(sheetName,json_object);
             })
+
 
         };
         reader.onerror = function(ex) {
