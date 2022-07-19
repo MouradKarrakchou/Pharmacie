@@ -4,10 +4,11 @@ import {
     ReferenceArea, ReferenceLine, ReferenceDot,
     LabelList, Label, LineChart, Line, ResponsiveContainer, BarChart, Bar, Pie,PieChart, Sector
 } from 'recharts';
+import DateSelection from "./DateSelection"
 
 export default function Graphic(props){
 
-    let json=JSON.parse(props.excel)
+    let json=props.excel
     let jsonGraph=json.map(
         data=>{
             return(data.DATE!="TOT"?{name:data.date,recetteprev:data.RecettePrev,Totdp:data.Totdp,Solde:data.SoldePrev}:{})
@@ -15,9 +16,9 @@ export default function Graphic(props){
     )
     console.log(props.fournisseur)
     let jsonBar=[]
-    JSON.parse(props.fournisseur).forEach(
+    props.fournisseur.forEach(
         data=>{
-            if(json[31][data.Fournisseur]!==0)
+            if(json[31]&&json[31][data.Fournisseur]!==0)
                 jsonBar.push({name:data.Fournisseur,facture:json[31][data.Fournisseur]})
         }
     )
@@ -89,6 +90,7 @@ export default function Graphic(props){
     return(
         <div className="Graphics">
             <div className="Graphics--courbe">
+                <DateSelection selectMounth={props.selectMounth} mounth={props.mounth}/>
                 <h2 className="Graphics--courbe--text">Courbe récapitulative du solde du mois</h2>
                 <LineChart
                     width={500}

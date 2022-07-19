@@ -3,19 +3,22 @@ import CalendrierRecap from "./CalendrierRecap";
 
 export default function Home(props){
 
-    const json=JSON.parse(props.excel)
+    const json=props.excel
+    console.log(json)
+    console.log(json.length)
     const [date,setDate]=React.useState(new Date());
 
     return (<div className="Home" >
             <div className="Home--contain2">
                 <h1> Recap solde mensuel(dh)</h1>
-                <CalendrierRecap excel={props.excel} setDate={setDate}/>
+                <CalendrierRecap excel2={props.excel2} excel={props.excel} setDate={setDate}/>
             </div>
             <div className="Home--contain1">
                 <h1>Donnés du {`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`}</h1>
                 <h2 className="Home--solde">Solde J-1: {json[date.getDate()-2]? json[date.getDate()-2].ENE:"--"}</h2>
                 <h1> Prévisionelle</h1>
                 <ul>
+                    {console.log(json.length)}
                     <li>Recettes prévu: {json.length!=0? json[date.getDate()-1].RecettePrev:"--"}</li>
                     <li>Prevu a payer: {json.length!=0? json[date.getDate()-1].Totdp:"--"}</li>
                     <li>Solde prévu: {json.length!=0? json[date.getDate()-1].SoldePrev:"--"}</li>

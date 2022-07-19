@@ -1,5 +1,8 @@
 import React from "react";
 import * as XLSX from "xlsx";
+import {
+    Link
+} from "react-router-dom";
 
 export default function TopBar(props){
     const onChange = (e) => {
@@ -13,14 +16,14 @@ export default function TopBar(props){
             });
 
             workbook.SheetNames.forEach(function(sheetName) {
+
                     var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
                     var json_object = JSON.stringify(XL_row_object);
-                if (sheetName==="Fournisseur")props.setFournisseur(json_object);
-                else if (sheetName==="Colonnes")props.setCol(json_object);
-                else
-                    props.setExcel(json_object)
-                    console.log(sheetName)
-                    props.setExcelMounth(sheetName,json_object);
+                    if (sheetName==="Fournisseur")props.setFournisseur(XL_row_object);
+                    else if (sheetName==="Colonnes")props.setCol(XL_row_object);
+                    else
+                        props.setExcel(XL_row_object)
+                        props.setExcelMounth(sheetName,XL_row_object);
             })
 
 
@@ -32,10 +35,10 @@ export default function TopBar(props){
     };
 
     return(<div className="TopBar--box">
-            <h1 className="TopBar--case" onClick={()=>props.choosePage(0)}>Accueil</h1>
-            <h1 className="TopBar--case" onClick={()=>props.choosePage(1)}>Saisie</h1>
-            <h1 className="TopBar--case" onClick={()=>props.choosePage(2)}>Facture</h1>
-            <h1 className="TopBar--case" onClick={()=>props.choosePage(3)}>Graphic</h1>
+            <h1 className="TopBar--case"><Link className="TopBar--link" to="/">Accueil</Link></h1>
+            <h1 className="TopBar--case"><Link className="TopBar--link" to="saisie">Saisie</Link></h1>
+            <h1 className="TopBar--case"><Link className="TopBar--link" to="facture">Facture</Link></h1>
+            <h1 className="TopBar--case"><Link className="TopBar--link" to="graphic">Graphic</Link></h1>
             <input  className="TopBar--case" type="file" onChange={onChange} />
         </div>)
 }

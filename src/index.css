@@ -3,6 +3,11 @@ html, body {
     padding: 0;
 }
 
+.TopBar--link{
+    text-decoration: none;
+    color:black;
+}
+
 .TopBar--box{
     display: flex;
     flex-direction: row;
@@ -13,7 +18,7 @@ html, body {
 .TopBar--case{
     padding:8px;
     margin:auto;
-    cursor: grab;
+    text-decoration: none;
 }
 
 .Home{
@@ -59,4 +64,26 @@ html, body {
 .Graphics--facture{
     margin: auto;
     border: 5px rgba(0, 0, 0, 0.11) solid;
+}
+#dateSelectionneur{
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 3px 5px;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+    width: 190px;
+    margin-top: 20px;
+}
+
+.Saisie--text{
+    font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    margin: 0px 20px;
+}
+
+.Facture--selection{
+    margin:0px;
+}
+.Facture--text{
+    width: 400px;
+    margin-bottom: -5px;
 }

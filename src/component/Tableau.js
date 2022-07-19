@@ -12,9 +12,9 @@ export default function Tableau(props){
             _export.current.save();
         }
     };
-    const jsonExcel=JSON.parse(props.excel)
-    const jsonCol=JSON.parse(props.col)
-    console.log(jsonCol)
+    const jsonExcel=props.excel
+    const jsonCol=props.col
+
     function transform(){
         return(jsonCol.map(
             col=>{
@@ -22,7 +22,7 @@ export default function Tableau(props){
             }
         ))
     }
-    console.log(transform())
+
     return (
         <ExcelExport data={jsonExcel} ref={_export}>
             <Grid
